@@ -1,0 +1,40 @@
+<div style="padding: 5px;font-family:微软雅黑;">
+<table class="tableForm" width="100%">
+	<tr>
+		<th>id:</th>
+		<td>${batchInvokeResult.id}</td>
+	</tr>					
+	<tr>
+		<th width="25%">批次号:</th>
+		<td>${batchInvokeResult.batchNo}</td>
+	</tr>					
+	<tr>
+		<th>用例编号:</th>
+		<td>${batchInvokeResult.caseNo}</td>
+	</tr>					
+	<tr>
+		<th>参数编号:</th>
+		<td>${batchInvokeResult.parameterNo}</td>
+	</tr>					
+	<tr>
+		<th>用例执行结果:</th>
+		<td>${batchInvokeResult.invokeStatus}</td>
+	</tr>					
+	<tr>
+		<th>用例请求入参:</th>
+		<td>${batchInvokeResult.parameterRequest}</td>
+	</tr>					
+	<tr>
+		<th>用例执行返回结果:</th>
+		<td>${batchInvokeResult.parameterResponse}</td>
+	</tr>					
+	<tr>
+		<th>创建时间:</th>
+		<td>${batchInvokeResult.createTime}</td>
+	</tr>					
+	<tr>
+		<th>修改时间:</th>
+		<td>${batchInvokeResult.updateTime}</td>
+	</tr>					
+</table>
+</div>

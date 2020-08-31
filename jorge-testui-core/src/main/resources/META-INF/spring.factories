@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.jorge.testui.TestuiAutoConfig
+
+com.acooly.core.common.boot.component.ComponentInitializer=\
+com.jorge.testui.TestuiComponentInitializer
