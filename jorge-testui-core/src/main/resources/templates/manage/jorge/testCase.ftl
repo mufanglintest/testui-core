@@ -243,7 +243,6 @@
     //加载请求参数子列表
     function load_sub_manage_parameters_datagrid() {
         var rowData = $.acooly.framework.getSelectedRow("sub_manage_parameters_datagrid");
-        console.info(rowData.caseNo);
         if (!rowData) {
             $.acooly.messager('提示','请先选择测试用例','danger');
             return null;
@@ -273,7 +272,6 @@
      */
     function manage_parameters_create() {
         var rowData = $.acooly.framework.getSelectedRow("manage_testCase_datagrid");
-        console.info(rowData);
         if (!rowData) {
             $.acooly.messager('提示','请先选择测试用例','danger');
             return null;
@@ -289,8 +287,18 @@
                 "projectNo": rowData.projectNo,
                 "interfaceNo": rowData.interfaceNo,
                 "caseNo": rowData.caseNo
+            },
+            onSuccess:function () {
+                $.acooly.framework.loadGrid({
+                    gridId: "sub_manage_parameters_datagrid",
+                    url: '/manage/jorge/parameters/listJson.html',
+                    ajaxData: {
+                        "search_EQ_caseNo": rowData.caseNo,
+                        "rows": 50,
+                    }
+                });
             }
-        })
+        });
 
     }
 
