@@ -59,3 +59,46 @@ function manage_testCase_invoke(gridId,projectNo,interfaceNo,caseNo,parametersNo
     });
 
 }
+
+/**
+ * 批量执行用例
+ * @param datagrid
+ * @param batchType {caseNo,interfaceNo,projectNo}
+ * @param invokeType {batch,single}
+ * @param parameterNo {当invokeType为single时才需要传入}
+ * @param singleTypeNo {执行单项目、单接口、单用例时的projectNo、interfaceNo、caseNo编号}
+ */
+function batchExecuteTestcase(datagrid,batchType,invokeType,parameterNo,singleTypeNo) {
+    var rows = [];
+    var caseData = [];
+    var parameterNos = [];
+    if (invokeType == 'batch') {
+        rows = $('#'+datagrid).datagrid('getChecked');
+        if (rows.length > 0) {
+            var rowSize = rows.length;
+            for (var i = 0; i < rowSize; i++) {
+                caseData.push(rows[i][batchType]);
+            }
+        }else{
+            $.acooly.messager('提示','请选择批量执行数据','danger');
+            return;
+        }
+    }else {
+        caseData.push(singleTypeNo);
+    }
+    if (parameterNo!=null && parameterNo!='') {
+        parameterNos.push(parameterNo);
+    }
+    $.ajax({
+        url:'/manage/jorge/parameters/batchExecuteTestcase',
+        data:{
+            'caseData':caseData,
+            'parameterNo':parameterNos,
+            'batchType':batchType
+        },
+        success:function (data) {
+            $('#'+datagrid).datagrid('reload');
+            $.acooly.messager('提示','用例正在执行！','success');
+        }
+    });
+}

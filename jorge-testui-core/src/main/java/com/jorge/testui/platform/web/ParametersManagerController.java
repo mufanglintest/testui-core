@@ -317,13 +317,13 @@ public class ParametersManagerController extends AbstractJQueryEntityController<
 		Map<Object, Object> datas = new HashMap<>();
 		String batchType = Servlets.getParameter("batchType");
 		System.out.println(batchType);
-		String[] caseNos = request.getParameterValues("caseNos[]");
-		String[] projectNos = request.getParameterValues("projectNos[]");
-		String[] interfaceNos = request.getParameterValues("interfaceNos[]");
+		String[] caseData = request.getParameterValues("caseData[]");
+		String[] parameterNo = request.getParameterValues("parameterNo[]");
 		Map<String, Object> map = new HashMap<>();
-		map.put("IN_caseNo" ,caseNos);
-		map.put("IN_projectNo" ,projectNos);
-		map.put("IN_interfaceNo" ,interfaceNos);
+		map.put("IN_"+batchType ,caseData);
+		if (parameterNo!=null && parameterNo.length!=0){
+			map.put("IN_parametersNo" ,parameterNo);
+		}
 		Map<String, Boolean> sortMap = new HashMap<>();
 		sortMap.put("caseNo",true);
 		List<Parameters> parametersList = parametersService.query(map,sortMap);

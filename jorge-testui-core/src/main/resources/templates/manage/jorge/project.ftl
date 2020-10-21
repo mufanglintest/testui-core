@@ -47,7 +47,7 @@ $(function() {
       <a onclick="$.acooly.framework.edit({url:'/manage/jorge/project/edit.html',id:'{0}',entity:'project',width:500,height:500});" href="#" title="编辑"><i class="fa fa-pencil fa-lg fa-fw fa-col"></i></a>
       <a onclick="$.acooly.framework.show('/manage/jorge/project/show.html?id={0}',500,500);" href="#" title="查看"><i class="fa fa-file-o fa-lg fa-fw fa-col"></i></a>
       <a onclick="$.acooly.framework.remove('/manage/jorge/project/deleteJson.html','{0}','manage_project_datagrid');" href="#" title="删除"><i class="fa fa-trash-o fa-lg fa-fw fa-col"></i></a>
-        <a onclick="testCase_invoke('{1}','','project');" href="#"
+        <a onclick="batchExecuteTestcase('manage_project_datagrid','projectNo','single',null,'{1}');" href="#"
            title="执行用例"><i class="fa fa-road fa-lg fa-fw fa-col"></i></a>
     </div>
 

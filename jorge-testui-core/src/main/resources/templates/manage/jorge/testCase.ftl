@@ -31,62 +31,62 @@
 </script>
 <div class="easyui-layout" data-options="fit:true,border:false">
     <!-- 查询条件 -->
-<div data-options="region:'north',border:false" style="padding:5px; overflow: hidden;" align="left">
-    <form id="manage_testCase_searchform" onsubmit="return false">
-        <table class="tableForm" width="100%">
-            <tr>
-                <td align="left">
-                    <div>
-                        所属系统: <select id="search_EQ_projectNo" style="width:150px;height:27px;" name="search_EQ_projectNo" editable="false"
-                                      panelHeight="300" class="easyui-combobox">
-                        <option value="">所有</option>
+    <div data-options="region:'north',border:false" style="padding:5px; overflow: hidden;" align="left">
+        <form id="manage_testCase_searchform" onsubmit="return false">
+            <table class="tableForm" width="100%">
+                <tr>
+                    <td align="left">
+                        <div>
+                            所属系统: <select id="search_EQ_projectNo" style="width:150px;height:27px;" name="search_EQ_projectNo" editable="false"
+                                          panelHeight="300" class="easyui-combobox">
+                            <option value="">所有</option>
                         <#list allProjectNos as k,v>
                         <option value="${k}">${v}</option>
                         </#list>
                         </select>
 
-                        所属接口:
+                            所属接口:
                         <#--<select id="search_EQ_interfaceNo" style="width:120px;height:27px;" name="search_EQ_interfaceNo" editable="false"-->
-                                      <#--panelHeight="300" class="easyui-combobox"  data-options="valueField:'id',textField:'text'">-->
+                        <#--panelHeight="300" class="easyui-combobox"  data-options="valueField:'id',textField:'text'">-->
                         <#--<option value="">所有</option>-->
                         <#--&lt;#&ndash;<#list allInterfaceNos as k,v>&ndash;&gt;-->
                         <#--&lt;#&ndash;<option value="${k}">${v}</option>&ndash;&gt;-->
                         <#--&lt;#&ndash;</#list>&ndash;&gt;-->
                         <#--</select>-->
-                        <input id="search_EQ_interfaceNo" name="search_EQ_interfaceNo" class="easyui-combobox" data-options="" style="width:150px;height:27px;"/>
+                            <input id="search_EQ_interfaceNo" name="search_EQ_interfaceNo" class="easyui-combobox" data-options="" style="width:150px;height:27px;"/>
 
 
-                        用例编号: <input type="text" class="text" size="15" name="search_LIKE_caseNo"/>
-                        用例名称: <input type="text" class="text" size="15" name="search_LIKE_caseName"/>
-                        创建者:
-                        <select style="width:120px;height:27px;" name="search_LIKE_createUser" editable="false"
-                                     panelHeight="auto" class="easyui-combobox">
-                            <option value="">所有</option>
+                            用例编号: <input type="text" class="text" size="15" name="search_LIKE_caseNo"/>
+                            用例名称: <input type="text" class="text" size="15" name="search_LIKE_caseName"/>
+                            创建者:
+                            <select style="width:120px;height:27px;" name="search_LIKE_createUser" editable="false"
+                                    panelHeight="auto" class="easyui-combobox">
+                                <option value="">所有</option>
                             <#list allCreateUsers as user>
                             <option value="${user.realName}">${user.realName}</option>
                             </#list>
-                        </select>
+                            </select>
 
-                        用例类别: <select style="width:80px;height:27px;" name="search_EQ_caseType" editable="false"
-                                      panelHeight="auto" class="easyui-combobox">
-                        <option value="">所有</option><#list allCaseTypes as k,v>
+                            用例类别: <select style="width:80px;height:27px;" name="search_EQ_caseType" editable="false"
+                                          panelHeight="auto" class="easyui-combobox">
+                            <option value="">所有</option><#list allCaseTypes as k,v>
                         <option value="${k}">${v}</option></#list></select>
 
-                        协议类型: <select style="width:80px;height:27px;" name="search_EQ_protocolType" editable="false"
-                                      panelHeight="auto" class="easyui-combobox">
-                        <option value="">所有</option><#list allProtocolTypes as k,v>
+                            协议类型: <select style="width:80px;height:27px;" name="search_EQ_protocolType" editable="false"
+                                          panelHeight="auto" class="easyui-combobox">
+                            <option value="">所有</option><#list allProtocolTypes as k,v>
                         <option value="${k}">${v}</option></#list></select>
-                        创建时间: <input type="text" class="text" size="15" name="search_LIKE_createTime"/>
-                        修改时间: <input type="text" class="text" size="15" name="search_LIKE_updateTime"/>
-                        <a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:false"
-                           onclick="$.acooly.framework.search('manage_testCase_searchform','manage_testCase_datagrid');"><i
-                                class="fa fa-search fa-lg fa-fw fa-col"></i>查询</a>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </form>
-</div>
+                            创建时间: <input type="text" class="text" size="15" name="search_LIKE_createTime"/>
+                            修改时间: <input type="text" class="text" size="15" name="search_LIKE_updateTime"/>
+                            <a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:false"
+                               onclick="$.acooly.framework.search('manage_testCase_searchform','manage_testCase_datagrid');"><i
+                                    class="fa fa-search fa-lg fa-fw fa-col"></i>查询</a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
 
     <!-- 列表和工具栏 -->
     <div data-options="region:'center',border:false" style="overflow: hidden;height:50%;" align="left">
@@ -107,7 +107,7 @@
                 <th field="caseName">用例名称</th>
                 <th field="caseType" formatter="mappingFormatter">用例类别</th>
                 <th field="url" formatter="contentFormatter">请求地址</th>
-                <#--<th field="input" formatter="contentFormatter">请求参数</th>-->
+            <#--<th field="input" formatter="contentFormatter">请求参数</th>-->
                 <th field="protocolType" formatter="mappingFormatter">协议类型</th>
                 <th field="createUser" >创建者</th>
                 <th field="createTime" formatter="dateTimeFormatter">创建时间</th>
@@ -128,8 +128,10 @@
                title="查看"><i class="fa fa-file-o fa-lg fa-fw fa-col"></i></a>
             <a onclick="$.acooly.framework.remove('/manage/jorge/testCase/deleteJson.html','{0}','manage_testCase_datagrid');"
                href="#" title="删除"><i class="fa fa-trash-o fa-lg fa-fw fa-col"></i></a>
-            <a onclick="manage_testCase_invoke('sub_manage_parameters_datagrid','{1}','{2}','{3}','{4}','case')" href="#"
-              title="执行用例"><i class="fa fa-road fa-lg fa-fw fa-col"></i></a>
+        <#--<a onclick="manage_testCase_invoke('sub_manage_parameters_datagrid','{1}','{2}','{3}','{4}','case')" href="#"-->
+        <#--title="执行用例"><i class="fa fa-road fa-lg fa-fw fa-col"></i></a>-->
+            <a onclick="batchExecuteTestcase('sub_manage_parameters_datagrid','caseNo','single','','{3}');" href="#"
+               title="执行用例"><i class="fa fa-road fa-lg fa-fw fa-col"></i></a>
             <a onclick="manage_testCase_copy('{3}','{4}','testcase')" href="#"
                title="复制用例"><i class="fa fa-amazon fa-lg fa-fw fa-col"></i></a>
         </div>
@@ -139,12 +141,12 @@
             <a href="#" class="easyui-linkbutton" plain="true"
                onclick="manage_testCase_create()"><i
                     class="fa fa-plus-circle fa-lg fa-fw fa-col"></i>添加</a>
-            <#--<a href="#" class="easyui-linkbutton" plain="true"-->
-               <#--onclick="$.acooly.framework.removes('/manage/jorge/testCase/deleteJson.html','manage_testCase_datagrid')"><i-->
-                    <#--class="fa fa-trash-o fa-lg fa-fw fa-col"></i>批量删除</a>-->
+        <#--<a href="#" class="easyui-linkbutton" plain="true"-->
+        <#--onclick="$.acooly.framework.removes('/manage/jorge/testCase/deleteJson.html','manage_testCase_datagrid')"><i-->
+        <#--class="fa fa-trash-o fa-lg fa-fw fa-col"></i>批量删除</a>-->
 
             <a href="#" class="easyui-linkbutton" plain="true"
-               onclick="batchExecuteTestcase('manage_testCase_datagrid')"><i
+               onclick="batchExecuteTestcase('manage_testCase_datagrid','caseNo','batch','','')"><i
                     class="fa fa-road fa-lg fa-fw fa-col"></i>批量执行</a>
         </div>
     </div>
@@ -162,13 +164,13 @@
                             data-options="formatter:function(value, row, index){ return row.id }">编号
                         </th>
                         <th field="id" sortable="true">id</th>
-                        <#--<th field="projectNo">系统编号</th>-->
-                        <#--<th field="interfaceNo">接口编号</th>-->
-                        <#--<th field="caseNo">测试用例编号</th>-->
+                    <#--<th field="projectNo">系统编号</th>-->
+                    <#--<th field="interfaceNo">接口编号</th>-->
+                    <#--<th field="caseNo">测试用例编号</th>-->
                         <th field="parametersNo">请求入参编号</th>
                         <th field="description" formatter="contentFormatter">用例说明</th>
                         <th field="parameters" formatter="contentFormatter">请求入参</th>
-                        <#--<th field="parameters" formatter="syntaxHighlight">请求入参</th>-->
+                    <#--<th field="parameters" formatter="syntaxHighlight">请求入参</th>-->
                         <th field="callCount" sortable="true">用例执行次数</th>
                         <th field="callSuccessCount" sortable="true">用例执行成功次数</th>
                         <th field="callFailCount" sortable="true">用例执行失败次数</th>
@@ -190,7 +192,9 @@
                        title="查看"><i class="fa fa-file-o fa-lg fa-fw fa-col"></i></a>
                     <a onclick="$.acooly.framework.remove('/manage/jorge/parameters/deleteJson.html','{0}','sub_manage_parameters_datagrid',null,null,load_sub_manage_parameters_datagrid);"
                        href="#" title="删除"><i class="fa fa-trash-o fa-lg fa-fw fa-col"></i></a>
-                    <a onclick="manage_testCase_invoke('sub_manage_parameters_datagrid','{1}','{2}','{3}','{4}','parameters')" href="#"
+                <#--<a onclick="manage_testCase_invoke('sub_manage_parameters_datagrid','{1}','{2}','{3}','{4}','parameters')" href="#"-->
+                <#--title="执行用例"><i class="fa fa-road fa-lg fa-fw fa-col"></i></a>-->
+                    <a onclick="batchExecuteTestcase('sub_manage_parameters_datagrid','caseNo','single','{4}','{3}')" href="#"
                        title="执行用例"><i class="fa fa-road fa-lg fa-fw fa-col"></i></a>
                     <a onclick="manage_testCase_copy('{3}','{4}','parameter')" href="#"
                        title="复制用例"><i class="fa fa-amazon fa-lg fa-fw fa-col"></i></a>
@@ -206,8 +210,8 @@
                     <a href="#" class="easyui-linkbutton" plain="true"
                        onclick="manage_parameters_addOrDeleteMessage('delete')"><i
                             class="fa fa-plus-circle fa-lg fa-fw fa-col"></i>批量删除请求参数</a>
-                    <#--<a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-add"-->
-                       <#--onclick="manage_parameters_create()">添加</a>-->
+                <#--<a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-add"-->
+                <#--onclick="manage_parameters_create()">添加</a>-->
                 <#--<a href="#" class="easyui-linkbutton" plain="true" onclick="$.acooly.framework.create({url:'/manage/jorge/parameters/create.html',entity:'parameters',width:500,height:500})"><i class="fa fa-plus-circle fa-lg fa-fw fa-col"></i>添加</a>-->
                 <#--<a href="#" class="easyui-linkbutton" plain="true" onclick="$.acooly.framework.removes('/manage/jorge/parameters/deleteJson.html','sub_manage_parameters_datagrid')"><i class="fa fa-trash-o fa-lg fa-fw fa-col"></i>批量删除</a>-->
                 </div>
@@ -411,13 +415,13 @@
     }
 
     //加载搜索框的关联关系
-        //下拉框修改后重新加载接口数据
-        $("#search_EQ_projectNo").combobox({
-            onChange: function (newProjectNo, oldProjectNo) {
-                $("#search_EQ_interfaceNo").empty();
-                getQueryInterfaceNos(newProjectNo);
-            }
-        });
+    //下拉框修改后重新加载接口数据
+    $("#search_EQ_projectNo").combobox({
+        onChange: function (newProjectNo, oldProjectNo) {
+            $("#search_EQ_interfaceNo").empty();
+            getQueryInterfaceNos(newProjectNo);
+        }
+    });
 
     function getQueryInterfaceNos(projectNo) {
         $.ajax({
@@ -443,11 +447,11 @@
                         editable: true,
                         delay: 600, //最后一次输入事件与执行搜索之间的延迟间隔（执行自动完成功能的延迟间隔）
                         filter: function (value, row) {
-                        var opts = $('#search_EQ_interfaceNo').combobox('options');
-                        return row[opts.textField].indexOf(value) >= 0;
-                    },
-                    data:dataList
-                });
+                            var opts = $('#search_EQ_interfaceNo').combobox('options');
+                            return row[opts.textField].indexOf(value) >= 0;
+                        },
+                        data:dataList
+                    });
                     //默认选中第一条数据
                     $("#search_EQ_interfaceNo").combobox("select", dataList[0].text);
                     $("#search_EQ_interfaceNo").combobox("setValue", "");
@@ -514,26 +518,27 @@
      * 批量执行用例
      * @param datagrid
      */
-    function batchExecuteTestcase(datagrid) {
-        // var rows = $.acooly.framework._getCheckedRows(datagrid);
-        var rows = $('#'+datagrid).datagrid('getChecked');
-        var caseNos = [];
-        if (rows.length > 0) {
-            for (var i = 0; i < rows.length; i++) {
-                caseNos.push(rows[i].caseNo);
-            }
-        }
-        $.ajax({
-            url:'/manage/jorge/parameters/batchExecuteTestcase',
-            data:{
-                'caseNos':caseNos,
-                'batchType':'123456'
-            },
-            success:function (data) {
-                $('#manage_testCase_datagrid').datagrid('reload');
-            }
-        });
-    }
+    // function batchExecuteTestcase(datagrid) {
+    //     // var rows = $.acooly.framework._getCheckedRows(datagrid);
+    //     var rows = $('#'+datagrid).datagrid('getChecked');
+    //     var caseNos = [];
+    //     if (rows.length > 0) {
+    //         var rowSize = rows.length;
+    //         for (var i = 0; i < rowSize; i++) {
+    //             caseNos.push(rows[i].caseNo);
+    //         }
+    //     }
+    //     $.ajax({
+    //         url:'/manage/jorge/parameters/batchExecuteTestcase',
+    //         data:{
+    //             'caseNos':caseNos,
+    //             'batchType':'123456'
+    //         },
+    //         success:function (data) {
+    //             $('#manage_testCase_datagrid').datagrid('reload');
+    //         }
+    //     });
+    // }
 
 </script>
 <style>

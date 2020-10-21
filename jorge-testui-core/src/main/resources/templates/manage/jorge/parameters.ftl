@@ -81,7 +81,7 @@ $(function() {
       <a onclick="$.acooly.framework.edit({url:'/manage/jorge/parameters/edit.html',id:'{0}',entity:'parameters',width:500,height:500});" href="#" title="编辑"><i class="fa fa-pencil fa-lg fa-fw fa-col"></i></a>
       <a onclick="$.acooly.framework.show('/manage/jorge/parameters/show.html?id={0}',500,500);" href="#" title="查看"><i class="fa fa-file-o fa-lg fa-fw fa-col"></i></a>
       <a onclick="$.acooly.framework.remove('/manage/jorge/parameters/deleteJson.html','{0}','manage_parameters_datagrid');" href="#" title="删除"><i class="fa fa-trash-o fa-lg fa-fw fa-col"></i></a>
-        <a onclick="manage_testCase_invoke('manage_parameters_datagrid','{1}','{2}','{3}','{4}','parameters')" href="#"
+        <a onclick="batchExecuteTestcase('manage_parameters_datagrid','caseNo','single','{4}','{3}');" href="#"
            title="执行用例"><i class="fa fa-road fa-lg fa-fw fa-col"></i></a>
     </div>
 

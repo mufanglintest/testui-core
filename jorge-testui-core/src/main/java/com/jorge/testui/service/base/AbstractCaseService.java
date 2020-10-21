@@ -45,13 +45,41 @@ public abstract class AbstractCaseService<O extends CaseBaseRequest, R extends C
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public final void caseService(CaseContext caseContext) {
 		try {
+			doInitRequest((O) caseContext.getRequest(), (R) caseContext.getResponse());
+
+			doDelete((O) caseContext.getRequest(), (R) caseContext.getResponse());
+
+			doInitData((O) caseContext.getRequest(), (R) caseContext.getResponse());
+
 			doService((O) caseContext.getRequest(), (R) caseContext.getResponse());
-			caseContext.getResponse().setCaseNo(caseContext.getRequest().getCaseNo());
-			caseContext.getResponse().setSuccess(true);
-			caseContext.getResponse().setGatewayUrl(caseContext.getRequest().getGatewayUrl());
+
+			doCheckData((O) caseContext.getRequest(), (R) caseContext.getResponse());
+
+			doDelete((O) caseContext.getRequest(), (R) caseContext.getResponse());
+
+			doSuccess(caseContext);
 		} catch (Exception e) {
 			throw e;
 		}
+	}
+
+	protected void doDelete(O request, R response){
+		System.out.println("todo...delete...");
+	}
+	protected void doInitRequest(O request, R response){
+		System.out.println("todo...InitRequest...");
+	}
+	protected void doInitData(O request, R response){
+		System.out.println("todo...InitData...");
+	}
+	protected void doCheckData(O request, R response){
+		System.out.println("todo...CheckData...");
+	}
+
+	private void doSuccess(CaseContext caseContext){
+		caseContext.getResponse().setCaseNo(caseContext.getCaseNo());
+		caseContext.getResponse().setSuccess(true);
+		caseContext.getResponse().setGatewayUrl(caseContext.getGatewayUrl());
 	}
 	
 	@Override
