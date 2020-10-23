@@ -66,11 +66,14 @@ public enum GatewayChannelApiEnum implements Messageable {
     FMTradeRefundQueryService("FMTradeRefundQueryService","富民交易退款查询"),
     FMTradeRefundService("FMTradeRefundService", "富民交易退款"),
 
-    //
+    //支付宝直连
     AliPayAppPayService("AliPayAppPayService","支付宝直连APP支付"),
     AliPayTradeQueryService("AliPayTradeQueryService","支付交易查询"),
     AliPayTradeRefundQueryService("AliPayTradeRefundQueryService","支付宝退款查询"),
-    AliPayTradeRefundService("AliPayTradeRefundService","支付宝退款")
+    AliPayTradeRefundService("AliPayTradeRefundService","支付宝退款"),
+    //中金网关支付渠道
+    CpcnNetBankPayService("CpcnNetBankPayService", "中金网银下单服务"),
+    CpcnTradeQueryService("CpcnTradeQueryService", "中金交易订单查询"),
     ;
     
     private final String code;
