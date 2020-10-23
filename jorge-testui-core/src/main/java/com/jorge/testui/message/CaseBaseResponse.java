@@ -24,4 +24,9 @@ public class CaseBaseResponse extends CaseMessage {
      * 用例编码
      */
     private String caseNo;
+
+    /**
+     * 执行完用例后是否删除数据
+     */
+    private Boolean isEndDelete = true;
 }

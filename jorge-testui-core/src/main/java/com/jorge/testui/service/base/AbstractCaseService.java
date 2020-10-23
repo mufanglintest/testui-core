@@ -55,7 +55,9 @@ public abstract class AbstractCaseService<O extends CaseBaseRequest, R extends C
 
 			doCheckData((O) caseContext.getRequest(), (R) caseContext.getResponse());
 
-			doDelete((O) caseContext.getRequest(), (R) caseContext.getResponse());
+			if (caseContext.getResponse().getIsEndDelete()){
+				doDelete((O) caseContext.getRequest(), (R) caseContext.getResponse());
+			}
 
 			doSuccess(caseContext);
 		} catch (Exception e) {
