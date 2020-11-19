@@ -79,6 +79,11 @@ public class JorgeCommonProperties {
      */
     private String merchOrderNo = Ids.getDid("test");
 
+    /**
+     * 异步通知回执结果
+     */
+    private String asynNotifyStatus = "success";
+
     @Data
     public static class Configuration {
         private Boolean enable;

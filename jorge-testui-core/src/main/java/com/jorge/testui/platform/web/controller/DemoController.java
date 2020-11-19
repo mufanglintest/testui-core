@@ -6,6 +6,7 @@ import com.acooly.openapi.framework.client.OpenApiClient;
 import com.acooly.openapi.framework.common.dto.ApiMessageContext;
 import com.acooly.openapi.framework.common.utils.ApiUtils;
 import com.jorge.testui.platform.entity.Parameters;
+import com.jorge.testui.utils.JorgeCommonProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,9 @@ import java.util.Map;
 @RequestMapping("/openapi/")
 @Slf4j
 public class DemoController {
+
+    @Autowired
+    JorgeCommonProperties jorgeCommonProperties;
 
     @RequestMapping(value = "/index",method = RequestMethod.POST)
     public String demo() {
@@ -76,8 +80,9 @@ public class DemoController {
             log.info("客户端 接收异步通知 header: {}", messageContext.getHeaders());
             log.info("客户端 接收异步通知 params: {}", messageContext.getParameters());
             log.info("客户端 接收异步通知 body: {}", messageContext.getBody());
-            Servlets.writeText(response, "success");
-            log.info("客户端 接收异步通知 回写 success");
+            String code = jorgeCommonProperties.getAsynNotifyStatus();
+            Servlets.writeText(response, code);
+            log.info("客户端 接收异步通知 回写 "+code);
         } catch (Exception e) {
             log.info("客户端 接收异步通知 验签失败！");
         }

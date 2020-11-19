@@ -65,19 +65,6 @@ public abstract class AbstractCaseService<O extends CaseBaseRequest, R extends C
 		}
 	}
 
-	protected void doDelete(O request, R response){
-		System.out.println("todo...delete...");
-	}
-	protected void doInitRequest(O request, R response){
-		System.out.println("todo...InitRequest...");
-	}
-	protected void doInitData(O request, R response){
-		System.out.println("todo...InitData...");
-	}
-	protected void doCheckData(O request, R response){
-		System.out.println("todo...CheckData...");
-	}
-
 	private void doSuccess(CaseContext caseContext){
 		caseContext.getResponse().setCaseNo(caseContext.getCaseNo());
 		caseContext.getResponse().setSuccess(true);
@@ -123,7 +110,33 @@ public abstract class AbstractCaseService<O extends CaseBaseRequest, R extends C
 		parametersService.update(parameters);
 		
 	}
-	
+
+	/**
+	 * 初始化请求参数
+	 * @param request
+	 * @param response
+	 */
+	protected void doInitRequest(O request, R response){
+		System.out.println("todo...InitRequest...");
+	}
+
+	/**
+	 * 删除数据操作
+	 * @param request
+	 * @param response
+	 */
+	protected void doDelete(O request, R response){
+		System.out.println("todo...delete...");
+	}
+
+	/**
+	 * 初始化数据操作
+	 * @param request
+	 * @param response
+	 */
+	protected void doInitData(O request, R response){
+		System.out.println("todo...InitData...");
+	}
 	/**
 	 * 服务处理方法
 	 *
@@ -137,7 +150,16 @@ public abstract class AbstractCaseService<O extends CaseBaseRequest, R extends C
 	 * @param response
 	 */
 	protected abstract void doService(O request, R response);
-	
+
+	/**
+	 * 做数据校验
+	 * @param request
+	 * @param response
+	 */
+	protected void doCheckData(O request, R response){
+		System.out.println("todo...CheckData...");
+	}
+
 	@Override
 	public O getRequestBean() {
 		if (requestClazz == null) {
@@ -153,7 +175,7 @@ public abstract class AbstractCaseService<O extends CaseBaseRequest, R extends C
 			throw new RuntimeException("实例化Request对象失败:" + requestClazz.toString());
 		}
 	}
-	
+
 	@Override
 	public R getResponseBean() {
 		if (responseClazz == null) {
