@@ -35,6 +35,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.util.HtmlUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -80,7 +81,14 @@ public class ParametersManagerController extends AbstractJQueryEntityController<
 
     }
 
-    @Override
+	@Override
+	protected Parameters onSave(HttpServletRequest request, HttpServletResponse response, Model model, Parameters entity, boolean isCreate) throws Exception {
+		//转义存入数据库单引号等
+    	entity.setParameters(HtmlUtils.htmlUnescape(entity.getParameters())) ;
+    	return entity;
+	}
+
+	@Override
 	protected void referenceData(HttpServletRequest request, Map<String, Object> model) {
     	Map<String,String> implementResult = new HashMap<>();
     	implementResult.put("true","通过");
