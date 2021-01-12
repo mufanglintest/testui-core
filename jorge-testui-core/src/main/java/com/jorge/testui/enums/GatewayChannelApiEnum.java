@@ -74,6 +74,9 @@ public enum GatewayChannelApiEnum implements Messageable {
     //中金网关支付渠道
     CpcnNetBankPayService("CpcnNetBankPayService", "中金网银下单服务"),
     CpcnTradeQueryService("CpcnTradeQueryService", "中金交易订单查询"),
+
+    //众邦
+    ZbankeztWithdrawToCardService("ZbankeztWithdrawToCardService","众邦提现到卡"),
     ;
     
     private final String code;
