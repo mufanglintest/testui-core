@@ -77,6 +77,9 @@ public enum GatewayChannelApiEnum implements Messageable {
 
     //众邦
     ZbankeztWithdrawToCardService("ZbankeztWithdrawToCardService","众邦提现到卡"),
+    //收钱吧
+    SqbTradeOrderQueryService("SqbTradeOrderQueryService", "收钱吧查询服务"),
+    SqbWechatMiniPayService("SqbWechatMiniPayService", "收钱吧小程序支付"),
     ;
     
     private final String code;
