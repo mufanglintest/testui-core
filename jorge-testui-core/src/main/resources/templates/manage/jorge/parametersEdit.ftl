@@ -36,8 +36,8 @@
             </tr>
 			<tr>
 				<th>请求入参：</th>
-				<td><textarea rows="3" cols="40" placeholder="请输入请求入参..." name="parameters"
-							  class="easyui-validatebox" data-options=" required:true"></textarea></td>
+				<td><textarea rows="20" cols="70" placeholder="请输入请求入参..." name="parameters"
+							  class="easyui-validatebox" data-options=" required:true" ></textarea></td>
 			</tr>
         </table>
       </@jodd.form>

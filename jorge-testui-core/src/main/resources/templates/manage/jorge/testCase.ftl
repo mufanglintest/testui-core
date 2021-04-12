@@ -186,9 +186,9 @@
                 </table>
                 <!-- 每行的Action动作模板 -->
                 <div id="sub_manage_parameters_action" style="display: none;">
-                    <a onclick="$.acooly.framework.edit({url:'/manage/jorge/parameters/edit.html',id:'{0}',entity:'parameters',width:500,height:500,onSuccess:load_sub_manage_parameters_datagrid});"
+                    <a onclick="$.acooly.framework.edit({url:'/manage/jorge/parameters/edit.html',id:'{0}',entity:'parameters',width:800,height:800,onSuccess:load_sub_manage_parameters_datagrid});"
                        href="#" title="编辑"><i class="fa fa-pencil fa-lg fa-fw fa-col"></i></a>
-                    <a onclick="$.acooly.framework.show('/manage/jorge/parameters/show.html?id={0}',500,500);" href="#"
+                    <a onclick="$.acooly.framework.show('/manage/jorge/parameters/show.html?id={0}',800,800);" href="#"
                        title="查看"><i class="fa fa-file-o fa-lg fa-fw fa-col"></i></a>
                     <a onclick="$.acooly.framework.remove('/manage/jorge/parameters/deleteJson.html','{0}','sub_manage_parameters_datagrid',null,null,load_sub_manage_parameters_datagrid);"
                        href="#" title="删除"><i class="fa fa-trash-o fa-lg fa-fw fa-col"></i></a>
