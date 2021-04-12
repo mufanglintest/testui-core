@@ -21,6 +21,7 @@ public class AssertCommonUtils {
      */
     public static void assertUtil(Object o1,Object o2){
         Field[] field = o1.getClass().getDeclaredFields();
+        log.info("开始校验{}全表字段",o1.getClass().getSimpleName());
         for(int i = 0;i<field.length;i++){
             field[i].setAccessible(true);
             String fieldName = field[i].getName();
@@ -31,7 +32,7 @@ public class AssertCommonUtils {
                         field1[j].setAccessible(true);
                         String fieldName1 = field1[j].getName();
                         if (fieldName.equals(fieldName1)){
-                            log.info("校验参数："+fieldName);
+                            log.info("校验参数:{},数据库存入值:{},用例传入期望值:{}",fieldName,field1[j].get(o2),field[i].get(o1));
                             AssertsUtil.assertThan(field1[j].get(o2),field[i].get(o1));
                             break;
                         }
