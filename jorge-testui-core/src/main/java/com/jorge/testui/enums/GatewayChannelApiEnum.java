@@ -80,6 +80,21 @@ public enum GatewayChannelApiEnum implements Messageable {
     //收钱吧
     SqbTradeOrderQueryService("SqbTradeOrderQueryService", "收钱吧查询服务"),
     SqbWechatMiniPayService("SqbWechatMiniPayService", "收钱吧小程序支付"),
+
+    /*----------------------------新生支付start----------------------------------*/
+    newPayWechatJsPay("newPayWechatJsPayService",  "新生支付微信支付（原生）"),
+    newPayWechatMiniPay("newPayWechatMiniPayService", "新生支付微信小程序支付"),
+    newPayTradeQuery("newPayTradeQueryService",  "新生支付订单查询"),
+    newPayTradeRefund("newPayTradeRefundService",  "新生支付订单退款"),
+    /*----------------------------新生支付end----------------------------------*/
+
+    /*----------------------------中金支付start----------------------------------*/
+    cpCnPayWechatJsPay("cpCnPayWechatJsPayService",  "中金支付微信支付（原生）"),
+    cpCnPayWechatMiniPay("cpCnPayWechatMiniPayService", "中金支付微信小程序支付"),
+    cpCnPayTradeQuery("cpCnPayTradeQueryService", "中金支付订单查询"),
+    cpCnPayTradeRefund("cpCnPayTradeRefundService",  "中金支付订单退款"),
+    cpCnPayTradeRefundQuery("cpCnPayTradeRefundQueryService",  "中金支付退款订单查询"),
+    /*----------------------------中金支付end----------------------------------*/
     ;
     
     private final String code;
